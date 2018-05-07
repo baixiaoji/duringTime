@@ -16,23 +16,17 @@ function duringTime(time) {
     timeArray.push(Math.floor((time%dayTime)/hourTime));
     timeArray.push( Math.ceil((time%hourTime)/minuteTime));
     
-    return this.formatterTime(timeArray)
+    return formatterTime(timeArray)
 }
 function formatterTime(timeArray) {
     let str = ''
-    this.emptyMinute(timeArray)
-    console.log(timeArray)
     const stringArray = ['天', '小时', '分钟']
     timeArray.map((current, i) => {
         if(current > 0){
             str += current + stringArray[i]
         }
     })
-    console.log(str)
     return str;
 }
-function emptyMinute(timeArray){
-    if(timeArray[0]){
-        timeArray[timeArray.length-1] = 0
-    }
-}
+
+export default duringTime;
